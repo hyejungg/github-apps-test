@@ -1,0 +1,35 @@
+{
+  "name": "gen-e2e-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Probot app",
+  "author": "김혜정(molly.ouo)",
+  "license": "ISC",
+  "homepage": "https://github.com//",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
+  "scripts": {
+    "dev": "nodemon --exec \"npm start\"",
+    "start": "probot run ./src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "chatgpt": "^5.2.5",
+    "nodemon": "^3.1.4",
+    "ollama": "^0.5.6",
+    "probot": "^13.0.1"
+  },
+  "devDependencies": {
+    "nock": "^14.0.0-beta.5",
+    "probot-commands": "^1.1.0",
+    "smee-client": "^2.0.1"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "type": "module"
+}
