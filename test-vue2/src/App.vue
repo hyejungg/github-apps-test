@@ -12,7 +12,13 @@ const showModal = ref(false);
     <!-- use the modal component, pass in the prop -->
     <modal-comp :show="showModal" @close="showModal = false">
       <template #header>
-        <h3>Custom Header</h3>
+        <h2>Information</h2>
+      </template>
+      <template #body>
+        <p>안녕하세요. 몰리입니다.</p>
+      </template>
+      <template #footer>
+        <button @click="showModal = false">Close</button>
       </template>
     </modal-comp>
   </Teleport>
