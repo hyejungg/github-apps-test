@@ -3,8 +3,8 @@ import ignoreList from "./ignoreList.js";
 import { genTestCode } from "./chat.js";
 
 const MODEL_INFO = {
-  GPT_4o: "GPT_4o",
-  GPT_4o_mini: "GPT_4o_mini",
+  gpt_4o: "gpt_4o",
+  gpt_4o_mini: "gpt_4o_mini",
   qwen2_7b: "qwen2_7b",
   llama3_8b: "llama3_8b",
   llama3_1_8b: "llama3_1_8b",
@@ -72,6 +72,7 @@ export default (app) => {
       if (targetFile.length <= 0) {
         const failCommandComment = context.pullRequest({
           issue_number: issue.number,
+          comment_id: commentId,
           body: "PR 내에서 테스트 코드를 작성할 코드 및 파일이 없습니다! 😁",
         });
         await context.octokit.issues.createComment(failCommandComment);
@@ -79,7 +80,7 @@ export default (app) => {
       }
 
       // api 요청
-      const modelName = MODEL_INFO.llama3_1_8b;
+      const modelName = MODEL_INFO.gpt_4o_mini;
       try {
         const contents = targetFile.map((file) => {
           const fileName = file.filename;
@@ -95,7 +96,6 @@ export default (app) => {
             comment_id: commentId,
             body: `${modelName}가 E2E 테스트 코드를 작성했어요! 해당 내용은 참고만 부탁드립니다.\n${res}`,
           });
-
           await context.octokit.issues.updateComment(updatedComment);
         }
       } catch (error) {
