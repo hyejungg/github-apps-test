@@ -21,7 +21,7 @@
     "@langchain/openai": "^0.2.5",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
-    "langchain": "^0.1.37",
+    "langchain": "^0.2.12",
     "nodemon": "^3.1.4",
     "probot": "^13.0.1"
   },

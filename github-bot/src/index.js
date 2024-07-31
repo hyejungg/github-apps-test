@@ -55,12 +55,19 @@ export default (app) => {
       });
 
       const targetFile = fileContents
+        // src 폴더 밑에 있는 파일 중에서
+        .filter((file) => {
+          const path = file.filename.split("/");
+          return path.includes("src") && path.length > 1;
+        })
+        // ignore 관련 파일은 제외
         .filter(
           (file) =>
             !ignoreList.fileNames.some((ignoreFileName) =>
               String(file.filename).includes(ignoreFileName),
             ),
         )
+        // json, md, ico 경우 제외
         .filter(
           (file) =>
             !ignoreList.extenstions.some((ignoreExt) =>
@@ -80,7 +87,7 @@ export default (app) => {
       }
 
       // api 요청
-      const modelName = MODEL_INFO.gpt_4o_mini;
+      const modelName = MODEL_INFO.llama3_1_8b;
       try {
         const contents = targetFile.map((file) => {
           const fileName = file.filename;
