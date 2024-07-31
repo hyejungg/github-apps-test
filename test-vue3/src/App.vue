@@ -89,7 +89,7 @@ function onHashChange() {
 <template>
   <section class="todoapp">
     <header class="header">
-      <h1>Todos!</h1>
+      <h1>Todos</h1>
       <input
         class="new-todo"
         autofocus
