@@ -8,10 +8,10 @@ const showModal2 = ref(false);
 
 <template>
   <button data-test="show-modal" id="show-modal" @click="showModal = true">
-    Show Modal
+    몰리
   </button>
   <button data-test="show-modal" id="show-modal" @click="showModal2 = true">
-    Show Modal2
+    바보
   </button>
 
   <Teleport to="body">
